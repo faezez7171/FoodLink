@@ -1,0 +1,5 @@
+/* پنل مشتری */
+navs.customer=[['customer-panel','⌂','خانه مشتری'],['customer-catalog','▧','فهرست کالاها'],['new-order','＋','ثبت سفارش'],['orders','▤','سفارش‌های من']];
+
+registerPage(['customer-catalog', 'customer-panel'],(c,page)=>{let me=db.customers[0];c.innerHTML=pageHead(page==='customer-panel'?'پنل مشتری':'فهرست کالاها','مشاهده کالاهای موجود، تخفیف‌ها و پیگیری سفارش')+`<div class="stats"><div class="stat"><small>سفارش‌های من</small><h2>${db.orders.filter(o=>o.role==='customer').length}</h2></div><div class="stat"><small>کالاهای موجود</small><h2>${db.products.filter(p=>p.stock>0).length}</h2></div><div class="stat"><small>تخفیف‌های فعال</small><h2>${db.products.filter(p=>p.discount>0).length}</h2></div><div class="stat"><small>ثبت سفارش</small><h2><a href="new-order.html">＋</a></h2></div></div><section class="panel"><div class="panelhead"><h3>کالاهای قابل سفارش</h3><a class="btn primary" href="new-order.html">ثبت سفارش جدید</a></div>${productCards(true)}</section><section class="panel"><h3>پیگیری سفارش‌های من</h3>${orderTable(db.orders.filter(o=>o.role==='customer'))}</section>`;});
+
