@@ -1,16 +1,12 @@
-::: {dir="rtl"}
+
 # Food Link \| فودلینک
 
 ### سامانه مدیریت سفارش، فروش و توزیع محصولات غذایی
 
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}از ثبت سفارش مشتری تا آماده‌سازی انبار و تحویل کالا؛ یک
-مسیر یکپارچه برای مدیریت عملیات پخش`</strong>`{=html}
-```{=html}
-</p>
-```
+
+از ثبت سفارش مشتری تا آماده‌سازی انبار و تحویل کالا؛ یک
+مسیر یکپارچه برای مدیریت عملیات پخش
+
 
 ------------------------------------------------------------------------
 
@@ -99,44 +95,6 @@
 جزئیات و نام وضعیت‌ها ممکن است هم‌زمان با نهایی‌شدن قواعد کسب‌وکار دقیق‌تر
 شوند.
 
-## ساختار مخزن
-
-``` text
-FoodLink/
-├── .git/
-├── requirements/                 # مستندات تحلیل و نیازمندی‌ها
-│   ├── 01-product-requirements.md
-│   ├── 02-workflows-and-statuses.md
-│   ├── 03-data-model-and-api.md
-│   ├── 04-screens-and-user-experience.md
-│   └── 05-reports-security-and-acceptance.md
-├── food_link_web_prototype/      # نمونه اولیه رابط وب
-│   ├── assets/
-│   │   ├── style.css
-│   │   └── app.js
-│   ├── index.html
-│   ├── dashboard.html
-│   ├── orders.html
-│   ├── new-order.html
-│   ├── order-detail.html
-│   ├── products.html
-│   ├── customers.html
-│   ├── warehouse.html
-│   ├── deliveries.html
-│   ├── reports.html
-│   ├── users.html
-│   ├── settings.html
-│   ├── customer-catalog.html
-│   ├── customer-panel.html
-│   ├── marketer-panel.html
-│   └── price-profile.html
-├── .gitignore
-└── README.md
-```
-
-*این ساختار نمایی از فایل‌های اصلی است و ممکن است در ادامه توسعه تغییر
-کند.*
-
 ## اجرای نمونه اولیه
 
 برای مشاهده رابط کاربری، در این نسخه نیازی به نصب وابستگی یا راه‌اندازی
@@ -204,13 +162,3 @@ FoodLink/
 
 ------------------------------------------------------------------------
 
-```{=html}
-<p align="center">
-```
-`<strong>`{=html}Food
-Link`</strong>`{=html}`<br>`{=html}`<sub>`{=html}مدیریت هوشمندتر سفارش و
-توزیع محصولات غذایی`</sub>`{=html}
-```{=html}
-</p>
-```
-:::
