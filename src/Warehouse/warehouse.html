@@ -1,1 +1,460 @@
-<!doctype html><html lang="fa" dir="rtl" data-role="warehouse"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#5268d9"><title>warehouse | Food Link</title><link rel="stylesheet" href="../shared/css/style.css"></head><body><div id="app"></div><script src="../shared/js/core.js"></script><script src="../shared/js/common-pages.js"></script><script src="js/warehouse.js"></script><script>render(location.pathname.split("/").pop().replace(".html",""))</script></body></html>
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مدیریت هوشمند انبار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#102d3b;--navy2:#19485a;--blue:#367f91;--ink:#1c303a;--muted:#71818a;--line:#e6edef;--bg:#f3f6f7;--green:#16845b;--red:#c74848;--amber:#a96a12;--shadow:0 7px 24px #1837460c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px Vazirmatn,Tahoma,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh}.side{position:fixed;right:0;top:0;bottom:0;width:250px;background:linear-gradient(180deg,var(--navy),#0b2430);color:#d8e5e9;padding:22px 15px;z-index:10;display:flex;flex-direction:column}.brand{display:flex;gap:11px;align-items:center;padding:5px 8px 25px;border-bottom:1px solid #ffffff20}.logo{background:#367e8e;border-radius:12px;width:42px;height:42px;display:grid;place-items:center;font-size:23px}.brand b{display:block;color:#fff}.brand small{color:#a5bbc3;font-size:10px}.navlabel{color:#89a5b0;font-size:10px;padding:22px 12px 8px}.nav{display:grid;gap:4px}.nav button{border:0;background:transparent;color:#c3d1d7;text-align:right;padding:11px 12px;border-radius:9px;display:flex;gap:12px;align-items:center}.nav button:hover,.nav button.active{background:#ffffff18;color:#fff}.nav button.active{box-shadow:inset -3px 0 #64c5b0}.ico{width:20px;text-align:center;font-size:17px}.sidefoot{margin-top:auto;border-top:1px solid #ffffff20;padding:15px 8px 0;color:#9eb4bd;font-size:10px}.main{margin-right:250px}.top{height:70px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:5}.crumb{font-size:12px;color:var(--muted)}.crumb b{color:var(--ink)}.profile{display:flex;align-items:center;gap:10px}.avatar{width:35px;height:35px;border-radius:50%;background:#e1eff1;color:#246779;display:grid;place-items:center;font-weight:800}.profile b{font-size:11px;display:block}.profile small{font-size:10px;color:var(--muted)}.content{padding:28px 30px;max-width:1650px;margin:auto}.head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:22px}.head h1{font-size:22px;margin:0 0 5px}.head p{margin:0;color:var(--muted);font-size:11px}.btn{border:0;border-radius:9px;padding:9px 14px;font-size:11px;font-weight:700}.primary{background:var(--navy2);color:white}.light{background:#edf2f4;color:#3d5965}.success{background:var(--green);color:white}.danger{background:#fff0ef;color:var(--red)}.outline{background:white;border:1px solid var(--line);color:#45606b}.sm{padding:6px 9px;font-size:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.stat{padding:17px}.statlabel{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.staticon{background:#edf4f6;color:#36788a;border-radius:10px;padding:8px}.stat strong{display:block;font-size:27px;margin-top:10px}.stat small{font-size:10px;color:var(--muted)}.twocol{display:grid;grid-template-columns:1.35fr 1fr;gap:16px}.panelhead{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panelhead h3{margin:0;font-size:13px}.panelbody{padding:17px 18px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap}th{background:#f8fafb;color:var(--muted);font-size:10px;text-align:right;padding:11px 13px}td{padding:12px 13px;border-top:1px solid #eff2f3;font-size:11px}tbody tr:hover{background:#fbfcfd}.badge{display:inline-block;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:700}.green{background:#e8f6ef;color:var(--green)}.red{background:#fff0ef;color:var(--red)}.amber{background:#fff5e5;color:var(--amber)}.blue{background:#eaf3f7;color:#2d6b80}.gray{background:#f0f2f3;color:#64747c}.filters{padding:14px 18px;display:flex;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line)}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field label{font-size:10px;font-weight:700;color:#50636d}.field input,.field select,.field textarea{border:1px solid #dfe7ea;border-radius:8px;padding:9px 10px;width:100%;min-width:0;background:white;color:var(--ink);outline:0;font-size:11px}.field input:focus,.field select:focus,.field textarea:focus{border-color:#5c9eae;box-shadow:0 0 0 3px #5c9eae18}.field textarea{min-height:65px}.filters .field{min-width:140px}.formpanel{padding:20px}.formgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.span2{grid-column:span 2}.sectitle{font-size:13px;margin:0 0 14px;font-weight:800}.sectitle:before{content:"";display:inline-block;width:4px;height:16px;background:#438da0;border-radius:4px;margin-left:8px;vertical-align:middle}.itembox{background:#f8fafb;border:1px solid var(--line);padding:15px;border-radius:12px;margin-top:15px}.itemgrid{display:grid;grid-template-columns:1.1fr 1.2fr 1fr .7fr .9fr .9fr;gap:9px;align-items:end}.actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:17px}.muted,.hint{color:var(--muted);font-size:10px}.notice{background:#eef6f8;color:#356879;padding:12px 14px;border-radius:10px;font-size:11px;margin-bottom:15px}.empty{text-align:center;padding:28px;color:var(--muted)}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick button{text-align:right;background:white;border:1px solid var(--line);border-radius:11px;padding:14px}.quick button span{font-size:20px;color:var(--blue)}.quick b{display:block;font-size:11px;margin-top:6px}.chart{height:170px;display:flex;align-items:end;gap:14px}.barcol{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;gap:5px}.bar{width:28px;background:linear-gradient(#66b0b7,#286b80);border-radius:6px 6px 1px 1px}.barcol small{font-size:9px;color:var(--muted)}.toastbox{position:fixed;left:20px;bottom:20px;z-index:40;display:grid;gap:8px}.toast{background:#173e4d;color:white;padding:13px 16px;border-radius:10px;box-shadow:0 10px 30px #0002;font-size:11px;min-width:250px}.toast.error{background:#a83b3b}.modalbg{position:fixed;inset:0;background:#102d3b77;z-index:30;display:grid;place-items:center;padding:15px}.modal{background:white;border-radius:15px;width:min(570px,100%);max-height:90vh;overflow:auto}.modalhead,.modalfoot{padding:15px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modalhead h3{margin:0;font-size:14px}.modalbody{padding:20px}.modalfoot{border-top:1px solid var(--line);border-bottom:0;justify-content:flex-end;gap:8px}.hidden{display:none}.mobile{display:none}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.formgrid{grid-template-columns:repeat(2,1fr)}.itemgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.side{transform:translateX(100%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-right:0}.top{padding:0 14px;height:62px}.content{padding:20px 13px}.mobile{display:inline-block}.today{display:none}.formgrid{grid-template-columns:1fr 1fr}.span2{grid-column:span 2}.itemgrid{grid-template-columns:1fr 1fr}.head h1{font-size:18px}.stats{gap:9px}.stat{padding:12px}.stat strong{font-size:22px}.quick{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.formgrid{grid-template-columns:1fr}.span2{grid-column:span 1}.itemgrid{grid-template-columns:1fr 1fr}}
+</style></head>
+<body>
+<aside class="side" id="side"><div class="brand"><div class="logo">▦</div><div><b>مدیریت هوشمند انبار</b><small>سامانه کنترل موجودی</small></div></div>
+<div class="navlabel">منوی اصلی</div><nav class="nav" id="nav">
+<button class="active" data-page="dashboard"><span class="ico">▦</span>داشبورد</button><button data-page="inbound"><span class="ico">↙</span>ثبت ورود به انبار</button><button data-page="outbound"><span class="ico">↗</span>ثبت خروج از انبار</button><button data-page="outlist"><span class="ico">▣</span>لیست خروجی‌ها</button><button data-page="history"><span class="ico">◷</span>تاریخچه تراکنش‌ها</button><button data-page="inventory"><span class="ico">▤</span>موجودی انبار</button>
+</nav><div class="navlabel">مدیریت اطلاعات</div><nav class="nav">
+<button data-page="products"><span class="ico">◇</span>تعریف کالا و واحد سنجش</button><button data-page="suppliers"><span class="ico">♧</span>تأمین‌کنندگان</button><button data-page="customers"><span class="ico">♙</span>مدیریت مشتریان</button><button data-page="reports"><span class="ico">▥</span>گزارشات</button><button data-page="settings"><span class="ico">⚙</span>تنظیمات</button><button data-page="users"><span class="ico">♙</span>مدیریت کاربران</button></nav><div class="sidefoot">● سیستم فعال است　　نسخه نمایشی ۱.۰</div></aside>
+<main class="main"><header class="top"><div style="display:flex;align-items:center;gap:12px"><button class="btn light mobile" onclick="toggleSide()">☰</button><div class="crumb">سامانه انبارداری　/　<b id="crumb">داشبورد</b></div></div><div class="profile"><span class="today" id="today"></span><div class="avatar">م</div><div><b>مدیر سیستم</b><small>دسترسی کامل</small></div></div></header><div class="content" id="content"></div></main>
+<div class="toastbox" id="toasts"></div><div id="modalroot"></div>
+<script>
+const $=s=>document.querySelector(s),fa=n=>Number(n||0).toLocaleString('fa-IR'),today=()=>new Date().toISOString().slice(0,10),dateFa=d=>d?new Date(d+'T00:00:00').toLocaleDateString('fa-IR'):'—',idgen=()=>'WH-'+Date.now().toString().slice(-7);
+const initial={units:['عدد','بسته','کارتن','کیسه','کیلوگرم','گرم','لیتر','متر'],cats:['لبنیات','خشکبار','نوشیدنی','مواد شوینده','بسته‌بندی'],suppliers:['شرکت پخش بهار','تأمین کالای پارس','بازرگانی سپید'],products:[
+{id:'P-1001',name:'شیر کم‌چرب ۱ لیتری',cat:'لبنیات',unit:'عدد',stock:86,min:25,expiry:'2026-11-18',hasExpiry:true},{id:'P-1002',name:'ماست پرچرب ۹۰۰ گرمی',cat:'لبنیات',unit:'عدد',stock:42,min:20,expiry:'2026-11-14',hasExpiry:true},{id:'P-1003',name:'پنیر سفید ۴۰۰ گرمی',cat:'لبنیات',unit:'بسته',stock:18,min:20,expiry:'2026-12-20',hasExpiry:true},{id:'P-2001',name:'مغز گردو',cat:'خشکبار',unit:'کیلوگرم',stock:125,min:30,expiry:'',hasExpiry:false},{id:'P-2002',name:'بادام درختی',cat:'خشکبار',unit:'کیلوگرم',stock:64,min:20,expiry:'',hasExpiry:false},{id:'P-3001',name:'آب معدنی ۱.۵ لیتری',cat:'نوشیدنی',unit:'کارتن',stock:9,min:12,expiry:'2027-04-01',hasExpiry:true},{id:'P-4001',name:'مایع ظرفشویی',cat:'مواد شوینده',unit:'عدد',stock:54,min:15,expiry:'',hasExpiry:false}],tx:[
+{id:'WH-10021',date:today(),dir:'in',type:'از تأمین‌کننده',invoice:'INV-2401',party:'شرکت پخش بهار',status:'approved',items:[{pid:'P-1001',qty:20,unit:'عدد',expiry:'2026-11-18',batch:'B-110'}],note:'تحویل کامل'},
+{id:'WH-10020',date:today(),dir:'out',type:'فروش',invoice:'INV-2398',party:'',status:'approved',items:[{pid:'P-2001',qty:5,unit:'کیلوگرم'}],note:''},
+{id:'WH-10019',date:today(),dir:'in',type:'مرجوعی از مشتری',invoice:'',party:'',status:'pending',items:[{pid:'P-1002',qty:6,unit:'عدد',expiry:'2026-11-14',batch:'B-109'}],note:'در انتظار بررسی مدیر'}]};
+let db;try{db=JSON.parse(localStorage.getItem('wh-demo'))||initial}catch(e){db=initial}
+const save=()=>localStorage.setItem('wh-demo',JSON.stringify(db)),prod=id=>db.products.find(p=>p.id===id),names={dashboard:'داشبورد',inbound:'ثبت ورود به انبار',outbound:'ثبت خروج از انبار',history:'تاریخچه تراکنش‌ها',inventory:'موجودی انبار',products:'تعریف کالا و واحد سنجش',suppliers:'تأمین‌کنندگان',reports:'گزارشات',settings:'تنظیمات',users:'مدیریت کاربران'};
+let draft=[];
+function toast(msg,error=false){let n=document.createElement('div');n.className='toast'+(error?' error':'');n.textContent=msg;$('#toasts').append(n);setTimeout(()=>n.remove(),3500)}
+function toggleSide(){$('#side').classList.toggle('open')}
+$('#nav').addEventListener('click',e=>{let b=e.target.closest('[data-page]');if(b)go(b.dataset.page)});
+document.querySelectorAll('.nav [data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function go(p){document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));$('#crumb').textContent=names[p];$('#side').classList.remove('open');render(p)}
+function head(t,s,btn=''){return `<div class="head"><div><h1>${t}</h1><p>${s}</p></div>${btn}</div>`}
+function status(s){return s==='approved'?'<span class="badge green">تأیید شده</span>':s==='rejected'?'<span class="badge red">رد شده</span>':'<span class="badge amber">در انتظار تأیید</span>'}
+function dirBadge(d){return d==='in'?'<span class="badge blue">ورود</span>':'<span class="badge gray">خروج</span>'}
+function expiry(p){if(!p.hasExpiry||!p.expiry)return '—';let d=Math.ceil((new Date(p.expiry+'T23:59:59')-new Date())/86400000);return d<0?'<span class="badge red">منقضی شده</span>':d<=14?'<span class="badge red">انقضا نزدیک</span>':d<=30?'<span class="badge amber">کمتر از ۳۰ روز</span>':'<span class="badge green">معتبر</span>'}
+function render(p='dashboard'){let c=$('#content');c.innerHTML=({dashboard:dashboard,inbound:()=>movement('in'),outbound:()=>movement('out'),inventory:inventory,history:history,products:products,suppliers:suppliers,reports:reports,settings:settings,users:users}[p]||dashboard)()}
+function dashboard(){let low=db.products.filter(p=>p.stock<=p.min).length,pending=db.tx.filter(t=>t.status==='pending').length,tx=db.tx.filter(t=>t.date===today()).length;return head('داشبورد انبار','نمای کلی وضعیت موجودی و گردش کالا',`<button class="btn primary" onclick="go('inbound')">＋ ثبت ورود جدید</button>`)+`<div class="stats">${[['تراکنش‌های امروز',tx,'⇄'],['تعداد کالاها',db.products.length,'▤'],['کالاهای در حال اتمام',low,'⚠'],['در انتظار تأیید',pending,'◷']].map(x=>`<div class="stat"><div class="statlabel">${x[0]}<span class="staticon">${x[2]}</span></div><strong>${fa(x[1])}</strong><small>${x[0]==='کالاهای در حال اتمام'?'نیازمند بررسی و تأمین':'اطلاعات ثبت‌شده در سیستم'}</small></div>`).join('')}</div><div class="twocol"><section class="panel"><div class="panelhead"><h3>آخرین تراکنش‌ها</h3><button class="btn light sm" onclick="go('history')">مشاهده همه</button></div><div class="tablewrap"><table><thead><tr><th>شماره سند</th><th>تاریخ</th><th>جهت</th><th>اقلام</th><th>وضعیت</th></tr></thead><tbody>${db.tx.slice(0,5).map(t=>`<tr><td>${t.id}</td><td>${dateFa(t.date)}</td><td>${dirBadge(t.dir)} ${t.type}</td><td>${fa(t.items.length)}</td><td>${status(t.status)}</td></tr>`).join('')}</tbody></table></div></section><section class="panel"><div class="panelhead"><h3>نمای گردش هفتگی</h3><span class="badge blue">نمونه آماری</span></div><div class="panelbody"><div class="chart">${[35,58,42,75,52,88,64].map((v,i)=>`<div class="barcol"><b class="muted">${fa(v)}</b><div class="bar" style="height:${v}%"></div><small>${['ش','ی','د','س','چ','پ','ج'][i]}</small></div>`).join('')}</div></div></section></div><section class="panel" style="margin-top:16px"><div class="panelhead"><h3>دسترسی سریع</h3></div><div class="panelbody"><div class="quick"><button onclick="go('inbound')"><span>↙</span><b>ثبت ورود به انبار</b><small class="muted">ثبت رسید جدید</small></button><button onclick="go('outbound')"><span>↗</span><b>ثبت خروج از انبار</b><small class="muted">ثبت حواله خروج</small></button><button onclick="go('inventory')"><span>▤</span><b>مشاهده موجودی</b><small class="muted">کنترل موجودی لحظه‌ای</small></button></div></div></section>`}
+function movement(dir){draft=[];let incoming=dir==='in';return head(incoming?'ثبت ورود به انبار':'ثبت خروج از انبار',incoming?'ثبت رسید ورود کالا و ارسال برای تأیید مدیریت':'ثبت حواله خروج کالا از موجودی انبار')+`<div class="notice">${incoming?'پس از ثبت نهایی، سند در انتظار تأیید مدیر قرار می‌گیرد و موجودی پس از تأیید افزایش می‌یابد.':'موجودی پس از تأیید مدیر کسر می‌شود؛ سیستم از خروج بیش از موجودی جلوگیری می‌کند.'}</div><section class="panel formpanel"><h3 class="sectitle">اطلاعات سند</h3><div class="formgrid"><div class="field"><label>تاریخ سند *</label><input id="docdate" type="date" value="${today()}"></div><div class="field"><label>نوع ${incoming?'ورود':'خروج'} *</label><select id="doctype">${(incoming?['از تأمین‌کننده','مرجوعی از مشتری','اضافه انبارگردانی','انتقال از انبار دیگر','سایر موارد']:['فروش','ضایعات','ارسال به شعبه دیگر','مصرف داخلی','انتقال به انبار دیگر','سایر موارد']).map(x=>`<option>${x}</option>`)}</select></div><div class="field"><label>شماره فاکتور / سند</label><input id="invoice" placeholder="مثلاً INV-2501"></div><div class="field"><label>${incoming?'تأمین‌کننده':'مقصد / تحویل‌گیرنده'}</label>${incoming?`<select id="party"><option value="">انتخاب تأمین‌کننده</option>${db.suppliers.map(x=>`<option>${x}</option>`)}</select>`:'<input id="party" placeholder="نام شعبه یا تحویل‌گیرنده">'}</div><div class="field span2"><label>توضیحات کلی سند</label><input id="docnote" placeholder="توضیحات تکمیلی (اختیاری)"></div></div><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3 class="sectitle">افزودن اقلام سند</h3><div class="itembox"><div class="itemgrid"><div class="field"><label>دسته‌بندی *</label><select id="cat" onchange="productOptions()"><option value="">انتخاب دسته</option>${db.cats.map(x=>`<option>${x}</option>`)}</select></div><div class="field"><label>نام کالا *</label><select id="pid" onchange="productMeta()"><option value="">ابتدا دسته را انتخاب کنید</option></select></div><div class="field"><label>واحد سنجش</label><input id="unit" readonly placeholder="خودکار"></div><div class="field"><label>تعداد *</label><input id="qty" type="number" min=".001" step=".001" placeholder="۰"></div><div class="field"><label>${incoming?'تاریخ انقضا':'موجودی فعلی'}</label>${incoming?'<input id="expiry" type="date">':'<input id="stock" readonly>'}</div><div class="field"><label>${incoming?'شماره بچ':'کنترل موجودی'}</label>${incoming?'<input id="batch" placeholder="اختیاری">':'<input id="control" readonly value="قابل بررسی">'}</div></div><div class="field" style="margin-top:10px"><label>توضیحات / مغایرت قلم</label><input id="itemnote" placeholder="در صورت وجود مغایرت وارد کنید"></div><div class="actions"><span class="hint" id="itemhint">ابتدا دسته‌بندی و سپس کالا را انتخاب کنید.</span><button class="btn primary" onclick="addItem('${dir}')">＋ افزودن به لیست سند</button></div></div><div style="margin-top:20px"><div class="panelhead" style="padding:0 0 10px;border:0"><h3>اقلام فاکتور <span class="badge blue" id="count">۰ قلم</span></h3></div><div class="tablewrap"><table><thead><tr><th>کالا</th><th>دسته</th><th>تعداد</th><th>واحد</th><th>${incoming?'انقضا / بچ':'موجودی'}</th><th>توضیحات</th><th>عملیات</th></tr></thead><tbody id="draftrows"><tr><td colspan="7" class="empty">هنوز کالایی اضافه نشده است.</td></tr></tbody></table></div></div><div class="actions"><span class="hint">موجودی فقط پس از تأیید مدیر تغییر می‌کند.</span><button class="btn success" onclick="submitDoc('${dir}')">ثبت نهایی و ارسال برای تأیید ←</button></div></section>`}
+function productOptions(){let cat=$('#cat').value;$('#pid').innerHTML='<option value="">انتخاب کالا</option>'+db.products.filter(p=>p.cat===cat).map(p=>`<option value="${p.id}">${p.name}</option>`).join('');$('#unit').value=''}
+function productMeta(){let p=prod($('#pid').value);if(!p)return;$('#unit').value=p.unit;if($('#stock'))$('#stock').value=fa(p.stock)+' '+p.unit;$('#itemhint').textContent=`کد کالا: ${p.id} | موجودی فعلی: ${fa(p.stock)} ${p.unit}`}
+function addItem(dir){let p=prod($('#pid').value),q=Number($('#qty').value);if(!p)return toast('لطفاً کالا را انتخاب کنید.',true);if(!q||q<=0)return toast('تعداد باید بیشتر از صفر باشد.',true);if(dir==='out'){let already=draft.filter(x=>x.pid===p.id).reduce((a,x)=>a+x.qty,0);if(q+already>p.stock)return toast(`موجودی کافی نیست؛ موجودی فعلی ${fa(p.stock)} ${p.unit} است.`,true)}draft.push({pid:p.id,qty:q,unit:p.unit,expiry:$('#expiry')?.value||'',batch:$('#batch')?.value||'',note:$('#itemnote').value,stockAtAdd:p.stock});drawDraft(dir);$('#qty').value='';if($('#expiry'))$('#expiry').value='';if($('#batch'))$('#batch').value='';$('#itemnote').value=''}
+function drawDraft(dir){$('#count').textContent=fa(draft.length)+' قلم';$('#draftrows').innerHTML=draft.length?draft.map((x,i)=>{let p=prod(x.pid);return `<tr><td><b>${p.name}</b><small class="muted">${p.id}</small></td><td>${p.cat}</td><td>${fa(x.qty)}</td><td>${x.unit}</td><td>${dir==='in'?(x.expiry?dateFa(x.expiry):'—')+' / '+(x.batch||'—'):fa(x.stockAtAdd)+' '+x.unit}</td><td>${x.note||'—'}</td><td><button class="btn danger sm" onclick="removeDraft(${i},'${dir}')">حذف</button></td></tr>`}).join(''):'<tr><td colspan="7" class="empty">هنوز کالایی اضافه نشده است.</td></tr>'}
+function removeDraft(i,dir){draft.splice(i,1);drawDraft(dir)}
+function submitDoc(dir){if(!draft.length)return toast('حداقل یک قلم به سند اضافه کنید.',true);if(!$('#docdate').value)return toast('تاریخ سند الزامی است.',true);if(dir==='out'&&draft.some(x=>draft.filter(y=>y.pid===x.pid).reduce((a,y)=>a+y.qty,0)>prod(x.pid).stock))return toast('موجودی یکی از کالاها کافی نیست.',true);db.tx.unshift({id:idgen(),date:$('#docdate').value,dir,type:$('#doctype').value,invoice:$('#invoice').value,party:$('#party').value,status:'pending',items:draft.map(x=>({...x})),note:$('#docnote').value});save();draft=[];toast('درخواست ثبت شد و جهت تأیید به مدیریت ارسال گردید.');go('history')}
+function inventory(){return head('موجودی انبار','نمای لحظه‌ای موجودی، حداقل موجودی و تاریخ انقضا',`<button class="btn outline" onclick="csv('inventory')">⇩ خروجی CSV</button>`)+`<section class="panel"><div class="filters"><div class="field"><label>جستجوی کالا</label><input id="isearch" placeholder="نام یا کد کالا" oninput="filterInv()"></div><div class="field"><label>دسته‌بندی</label><select id="icat" onchange="filterInv()"><option value="">همه دسته‌ها</option>${db.cats.map(x=>`<option>${x}</option>`)}</select></div><div class="field"><label>وضعیت</label><select id="istat" onchange="filterInv()"><option value="">همه</option><option value="low">کمتر از حداقل</option><option value="ok">مناسب</option></select></div></div><div class="tablewrap"><table><thead><tr><th>کد کالا</th><th>نام کالا</th><th>دسته‌بندی</th><th>واحد</th><th>موجودی فعلی</th><th>حداقل موجودی</th><th>وضعیت</th><th>انقضا</th></tr></thead><tbody id="invrows">${invRows(db.products)}</tbody></table></div></section>`}
+function invRows(list){return list.length?list.map(p=>`<tr><td>${p.id}</td><td><b>${p.name}</b></td><td>${p.cat}</td><td>${p.unit}</td><td><b>${fa(p.stock)}</b></td><td>${fa(p.min)}</td><td>${p.stock<=p.min?'<span class="badge red">نیاز به تأمین</span>':'<span class="badge green">مناسب</span>'}</td><td>${expiry(p)}</td></tr>`).join(''):'<tr><td colspan="8" class="empty">کالایی یافت نشد.</td></tr>'}
+function filterInv(){let q=$('#isearch').value.toLowerCase(),c=$('#icat').value,s=$('#istat').value;$('#invrows').innerHTML=invRows(db.products.filter(p=>(p.name.toLowerCase().includes(q)||p.id.toLowerCase().includes(q))&&(!c||p.cat===c)&&(!s||(s==='low'?p.stock<=p.min:p.stock>p.min))))}
+function history(){return head('تاریخچه تراکنش‌ها','سوابق ورود و خروج، وضعیت بررسی و گردش اسناد',`<button class="btn outline" onclick="csv('history')">⇩ خروجی CSV</button>`)+`<section class="panel"><div class="filters"><div class="field"><label>از تاریخ</label><input id="hfrom" type="date" onchange="filterHist()"></div><div class="field"><label>تا تاریخ</label><input id="hto" type="date" onchange="filterHist()"></div><div class="field"><label>جهت تراکنش</label><select id="hdir" onchange="filterHist()"><option value="">همه</option><option value="in">ورود</option><option value="out">خروج</option></select></div><div class="field"><label>وضعیت</label><select id="hstatus" onchange="filterHist()"><option value="">همه</option><option value="pending">در انتظار تأیید</option><option value="approved">تأیید شده</option><option value="rejected">رد شده</option></select></div><div class="field"><label>جستجو</label><input id="hsearch" placeholder="شماره سند یا فاکتور" oninput="filterHist()"></div></div><div class="tablewrap"><table><thead><tr><th>شماره سند</th><th>تاریخ</th><th>جهت</th><th>نوع</th><th>فاکتور</th><th>اقلام</th><th>وضعیت</th><th>جزئیات و اقدام</th></tr></thead><tbody id="histrows">${histRows(db.tx)}</tbody></table></div></section>`}
+function histRows(list){return list.length?list.map(t=>`<tr><td><b>${t.id}</b></td><td>${dateFa(t.date)}</td><td>${dirBadge(t.dir)}</td><td>${t.type}</td><td>${t.invoice||'—'}</td><td>${fa(t.items.length)}</td><td>${status(t.status)}</td><td><button class="btn light sm" onclick="showTx('${t.id}')">جزئیات</button> ${t.status==='pending'?`<button class="btn success sm" onclick="approve('${t.id}')">تأیید</button> <button class="btn danger sm" onclick="reject('${t.id}')">رد</button>`:''}</td></tr>`).join(''):'<tr><td colspan="8" class="empty">تراکنشی یافت نشد.</td></tr>'}
+function filterHist(){let f=$('#hfrom').value,t=$('#hto').value,d=$('#hdir').value,s=$('#hstatus').value,q=$('#hsearch').value.toLowerCase();$('#histrows').innerHTML=histRows(db.tx.filter(x=>(!f||x.date>=f)&&(!t||x.date<=t)&&(!d||x.dir===d)&&(!s||x.status===s)&&(!q||x.id.toLowerCase().includes(q)||(x.invoice||'').toLowerCase().includes(q))))}
+function approve(id){let t=db.tx.find(x=>x.id===id);if(!t||t.status!=='pending')return;for(let x of t.items)if(t.dir==='out'&&prod(x.pid).stock<x.qty)return toast('موجودی برای تأیید خروج کافی نیست.',true);t.items.forEach(x=>{let p=prod(x.pid);p.stock=Number((p.stock+(t.dir==='in'?x.qty:-x.qty)).toFixed(3));if(t.dir==='in'&&x.expiry){p.expiry=x.expiry;p.hasExpiry=true}});t.status='approved';t.approvedAt=today();save();toast('سند تأیید شد و موجودی به‌روزرسانی شد.');go('history')}
+function reject(id){let t=db.tx.find(x=>x.id===id);if(!t)return;modal('رد درخواست','<div class="field"><label>علت رد یا مغایرت</label><textarea id="reason" placeholder="توضیح را وارد کنید"></textarea></div>',()=>{t.status='rejected';t.reason=$('#reason').value;save();closeModal();toast('درخواست رد شد.');go('history')})}
+function showTx(id){let t=db.tx.find(x=>x.id===id);modal('جزئیات سند '+id,`<p>تاریخ: ${dateFa(t.date)}　 ${status(t.status)}</p><p>نوع: ${t.type}　 شماره فاکتور: ${t.invoice||'—'}</p><div class="tablewrap"><table><thead><tr><th>کالا</th><th>تعداد</th><th>واحد</th><th>انقضا</th><th>بچ</th><th>توضیح</th></tr></thead><tbody>${t.items.map(x=>`<tr><td>${prod(x.pid)?.name||x.pid}</td><td>${fa(x.qty)}</td><td>${x.unit}</td><td>${x.expiry?dateFa(x.expiry):'—'}</td><td>${x.batch||'—'}</td><td>${x.note||'—'}</td></tr>`).join('')}</tbody></table></div><p class="muted">توضیحات: ${t.note||'—'} ${t.reason?' | علت رد: '+t.reason:''}</p>`)}
+function products(){return head('تعریف کالا و واحد سنجش','مدیریت کالاها، دسته‌بندی‌ها و واحد شمارش هر کالا',`<button class="btn primary" onclick="newProduct()">＋ تعریف کالای جدید</button>`)+`<div class="twocol"><section class="panel"><div class="panelhead"><h3>فهرست کالاها</h3><span class="badge blue">${fa(db.products.length)} کالا</span></div><div class="tablewrap"><table><thead><tr><th>کد</th><th>نام کالا</th><th>دسته</th><th>واحد</th><th>موجودی</th></tr></thead><tbody>${db.products.map(p=>`<tr><td>${p.id}</td><td>${p.name}</td><td>${p.cat}</td><td>${p.unit}</td><td>${fa(p.stock)}</td></tr>`).join('')}</tbody></table></div></section><section class="panel"><div class="panelhead"><h3>واحدهای سنجش</h3><span class="badge blue">${fa(db.units.length)} واحد</span></div><div class="panelbody"><p>${db.units.map(u=>`<span class="badge gray" style="margin:3px">${u}</span>`).join('')}</p><div class="field"><label>افزودن واحد</label><div style="display:flex;gap:7px"><input id="newunit" placeholder="مثلاً رول یا جعبه"><button class="btn primary" onclick="addUnit()">افزودن</button></div></div><hr><div class="field"><label>افزودن دسته‌بندی</label><div style="display:flex;gap:7px"><input id="newcat" placeholder="نام دسته"><button class="btn primary" onclick="addCat()">افزودن</button></div></div></div></section></div>`}
+function newProduct(){modal('تعریف کالای جدید',`<div class="formgrid" style="grid-template-columns:1fr 1fr"><div class="field"><label>کد کالا *</label><input id="npid"></div><div class="field"><label>نام کالا *</label><input id="npname"></div><div class="field"><label>دسته</label><select id="npcat">${db.cats.map(x=>`<option>${x}</option>`)}</select></div><div class="field"><label>واحد سنجش</label><select id="npunit">${db.units.map(x=>`<option>${x}</option>`)}</select></div><div class="field"><label>موجودی اولیه</label><input id="npstock" type="number" value="0"></div><div class="field"><label>حداقل موجودی</label><input id="npmin" type="number" value="5"></div><div class="field"><label>دارای انقضا؟</label><select id="npexp"><option value="no">خیر</option><option value="yes">بله</option></select></div></div>`,()=>{let id=$('#npid').value.trim(),name=$('#npname').value.trim();if(!id||!name)return toast('کد و نام کالا الزامی است.',true);if(db.products.some(p=>p.id===id))return toast('کد کالا تکراری است.',true);db.products.push({id,name,cat:$('#npcat').value,unit:$('#npunit').value,stock:+$('#npstock').value||0,min:+$('#npmin').value||0,expiry:'',hasExpiry:$('#npexp').value==='yes'});save();closeModal();toast('کالا تعریف شد.');go('products')})}
+function addUnit(){let x=$('#newunit').value.trim();if(!x)return;if(db.units.includes(x))return toast('واحد تکراری است.',true);db.units.push(x);save();toast('واحد اضافه شد.');go('products')}
+function addCat(){let x=$('#newcat').value.trim();if(!x)return;if(db.cats.includes(x))return toast('دسته موجود است.',true);db.cats.push(x);save();toast('دسته اضافه شد.');go('products')}
+function suppliers(){return head('تأمین‌کنندگان','فهرست طرف‌های تأمین کالا',`<button class="btn primary" onclick="modal('افزودن تأمین‌کننده','<div class=&quot;field&quot;><label>نام تأمین‌کننده</label><input id=&quot;supname&quot;></div>',addSupplier)">＋ افزودن تأمین‌کننده</button>`)+`<section class="panel"><div class="tablewrap"><table><thead><tr><th>ردیف</th><th>نام تأمین‌کننده</th><th>تعداد اسناد</th><th>وضعیت</th></tr></thead><tbody>${db.suppliers.map((s,i)=>`<tr><td>${fa(i+1)}</td><td>${s}</td><td>${fa(db.tx.filter(t=>t.party===s).length)}</td><td><span class="badge green">فعال</span></td></tr>`).join('')}</tbody></table></div></section>`}
+function addSupplier(){let s=$('#supname').value.trim();if(!s)return toast('نام تأمین‌کننده را وارد کنید.',true);db.suppliers.push(s);save();closeModal();toast('تأمین‌کننده اضافه شد.');go('suppliers')}
+function reports(){let a=db.tx.filter(t=>t.status==='approved');return head('گزارشات انبار','خلاصه عملکرد و هشدارهای عملیاتی',`<button class="btn outline" onclick="csv('history')">⇩ گزارش تراکنش‌ها</button>`)+`<div class="stats">${[['اسناد تأییدشده',a.length],['اسناد ورود',a.filter(t=>t.dir==='in').length],['اسناد خروج',a.filter(t=>t.dir==='out').length],['کالاهای کم‌موجود',db.products.filter(p=>p.stock<=p.min).length]].map(x=>`<div class="stat"><div class="statlabel">${x[0]}</div><strong>${fa(x[1])}</strong></div>`).join('')}</div><section class="panel"><div class="panelhead"><h3>هشدارهای موجودی و انقضا</h3></div><div class="tablewrap"><table><thead><tr><th>کالا</th><th>موجودی</th><th>حداقل</th><th>وضعیت موجودی</th><th>انقضا</th></tr></thead><tbody>${db.products.filter(p=>p.stock<=p.min||(p.hasExpiry&&p.expiry)).map(p=>`<tr><td>${p.name}</td><td>${fa(p.stock)} ${p.unit}</td><td>${fa(p.min)}</td><td>${p.stock<=p.min?'<span class="badge red">کمبود</span>':'<span class="badge green">مناسب</span>'}</td><td>${expiry(p)}</td></tr>`).join('')}</tbody></table></div></section>`}
+function settings(){return head('تنظیمات','تنظیمات عمومی سامانه نمایشی')+`<section class="panel formpanel"><h3 class="sectitle">تنظیمات انبار</h3><div class="formgrid"><div class="field"><label>نام انبار</label><input value="انبار مرکزی"></div><div class="field"><label>نام مجموعه</label><input value="شرکت نمونه"></div><div class="field"><label>حد هشدار انقضا (روز)</label><input type="number" value="14"></div></div><div class="actions"><span class="muted">اطلاعات این نسخه به‌صورت محلی در مرورگر ذخیره می‌شود.</span><button class="btn primary" onclick="toast('تنظیمات نمایشی ذخیره شد.')">ذخیره تنظیمات</button><button class="btn outline" onclick="if(confirm('داده‌ها به حالت اولیه بازگردند؟')){db=JSON.parse(JSON.stringify(initial));save();go('dashboard')}">بازنشانی داده‌ها</button></div></section>`}
+function users(){return head('مدیریت کاربران','کاربران نمونه و سطح دسترسی')+`<section class="panel"><div class="tablewrap"><table><thead><tr><th>نام</th><th>نام کاربری</th><th>نقش</th><th>دسترسی</th><th>وضعیت</th></tr></thead><tbody><tr><td>مدیر سیستم</td><td>admin</td><td>مدیر</td><td>تأیید و رد اسناد، مدیریت کامل</td><td><span class="badge green">فعال</span></td></tr><tr><td>انباردار</td><td>warehouse</td><td>انباردار</td><td>ثبت ورود و خروج و مشاهده موجودی</td><td><span class="badge green">فعال</span></td></tr></tbody></table></div></section>`}
+function modal(title,body,confirmFn){$('#modalroot').innerHTML=`<div class="modalbg" id="mbg" onclick="if(event.target.id==='mbg')closeModal()"><div class="modal"><div class="modalhead"><h3>${title}</h3><button class="btn light" onclick="closeModal()">×</button></div><div class="modalbody">${body}</div>${confirmFn?'<div class="modalfoot"><button class="btn outline" onclick="closeModal()">انصراف</button><button class="btn primary" id="mconfirm">تأیید</button></div>':''}</div></div>`;if(confirmFn)$('#mconfirm').onclick=confirmFn}
+function closeModal(){$('#modalroot').innerHTML=''}
+function csv(type){let rows=type==='inventory'?[['کد','نام کالا','دسته','واحد','موجودی','حداقل'],...db.products.map(p=>[p.id,p.name,p.cat,p.unit,p.stock,p.min])]:[['شماره سند','تاریخ','جهت','نوع','فاکتور','وضعیت','اقلام'],...db.tx.map(t=>[t.id,t.date,t.dir,t.type,t.invoice,t.status,t.items.map(i=>(prod(i.pid)?.name||i.pid)+': '+i.qty+' '+i.unit).join(' | ')])];let text='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download=type+'.csv';a.click();URL.revokeObjectURL(a.href)}
+$('#today').textContent=new Date().toLocaleDateString('fa-IR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});render();
+</script>
+<link rel="stylesheet" href="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+<style>
+.stat{padding:21px}.dashboard-space{margin-bottom:20px}.customerbox{grid-column:span 2;background:#f7fafb;border:1px solid #e6edef;border-radius:10px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:9px}.customerbox small{color:#71818a;font-size:10px}.customerbox b{font-size:11px}.docno{font-size:13px;font-weight:800;color:#286b80;direction:ltr;display:inline-block}.subhint{font-size:9px;color:#71818a;margin-top:3px}.unitpair{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media(max-width:720px){.customerbox{grid-column:span 2;grid-template-columns:1fr 1fr}}@media(max-width:420px){.customerbox{grid-column:span 1;grid-template-columns:1fr}}
+</style>
+<script src="https://unpkg.com/@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+<script>
+/* ارتقاهای نسخه ۲؛ داده‌ها و رفتارهای نسخه قبل حفظ شده‌اند. */
+const oldSave = save;
+const latinDigits = s => String(s ?? '').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const onlyDigits = el => { el.value=latinDigits(el.value).replace(/[^0-9]/g,''); };
+const jalaliToday = () => {
+  const parts=new Intl.DateTimeFormat('en-u-ca-persian-nu-latn',{year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  const o={}; parts.forEach(p=>o[p.type]=p.value); return `${o.year}/${o.month}/${o.day}`;
+};
+const codeText = (prefix,n) => `${prefix}-${n}`;
+const baseQty = (p,main,sub) => Number(main||0)*(p.ratio||1)+Number(sub||0);
+const showQty = (p,base) => {
+  const r=p.ratio||1,main=Math.floor(base/r),sub=base%r;
+  return p.subUnit ? `${fa(main)} ${p.unit} و ${fa(sub)} ${p.subUnit}` : `${fa(main)} ${p.unit}`;
+};
+const findParty = (arr,value) => arr.find(x=>x.code===value || x.name===value || `${x.code} — ${x.name}`===value);
+
+if (!db.customers) db.customers=[
+ {code:'C-1001',name:'فروشگاه مرکزی',phone:'02122334455',address:'تهران، خیابان ولیعصر',city:'تهران'},
+ {code:'C-1002',name:'سوپرمارکت سپید',phone:'02633445566',address:'کرج، گوهردشت',city:'کرج'},
+ {code:'C-1003',name:'فروشگاه آفتاب',phone:'03155667788',address:'اصفهان، چهارباغ',city:'اصفهان'}
+];
+db.suppliers=(db.suppliers||[]).map((x,i)=>typeof x==='string'?{code:`S-${2001+i}`,name:x,phone:'',address:'',city:''}:x);
+db.products.forEach(p=>{
+ if(!p.subUnit){p.subUnit='';p.ratio=1;p.stockBase=Number(p.stock||0);p.minBase=Number(p.min||0);}
+});
+db.tx.forEach(t=>{
+ if(t.dir==='out'&&!t.outNo)t.outNo=`OUT-${1001+db.tx.filter(x=>x.dir==='out').indexOf(t)}`;
+ if(t.items)t.items.forEach(x=>{
+   if(x.qtyMain===undefined){x.qtyMain=Number(x.qty||0);x.qtySub=0;x.ratio=prod(x.pid)?.ratio||1;x.subUnit=prod(x.pid)?.subUnit||'';x.baseQty=x.qtyMain*x.ratio;}
+ });
+});
+names.outlist='لیست خروجی‌ها'; names.customers='مدیریت مشتریان';
+/* ذخیره‌سازی از تابع save نسخه اصلی استفاده می‌کند تا داده‌های قبلی نیز حفظ شوند. */
+function render(p='dashboard'){
+ const c=$('#content');
+ const pages={dashboard:dashboard,inbound:()=>movement('in'),outbound:()=>movement('out'),outlist:outlist,history:history,inventory:inventory,products:products,suppliers:suppliers,customers:customers,reports:reports,settings:settings,users:users};
+ c.innerHTML=(pages[p]||dashboard)();
+ if(window.jalaliDatepicker) jalaliDatepicker.startWatch();
+}
+function dashboard(){
+ const low=db.products.filter(p=>(p.stockBase??p.stock)<=((p.minBase??p.min)*(p.ratio||1))).length;
+ const pending=db.tx.filter(t=>t.status==='pending').length;
+ return head('داشبورد','خلاصه اولویت‌های عملیاتی انبار')+
+ `<div class="twocol dashboard-space" style="grid-template-columns:1fr 1fr">
+ <div class="stat"><div class="statlabel">کالاهای در حال اتمام / کمبود <span class="staticon">⚠</span></div><strong>${fa(low)}</strong><small>نیازمند بررسی و تأمین</small></div>
+ <div class="stat"><div class="statlabel">اسناد در انتظار تأیید <span class="staticon">◷</span></div><strong>${fa(pending)}</strong><small>درخواست‌های ثبت‌شده توسط انباردار</small></div></div>
+ <section class="panel"><div class="panelhead"><h3>آخرین تراکنش‌ها</h3><button class="btn light sm" onclick="go('history')">مشاهده همه</button></div>
+ <div class="tablewrap"><table><thead><tr><th>شماره سند / خروجی</th><th>تاریخ شمسی</th><th>جهت</th><th>طرف حساب</th><th>اقلام</th><th>وضعیت</th></tr></thead><tbody>
+ ${db.tx.slice(0,7).map(t=>`<tr><td><b>${t.outNo||t.id}</b></td><td>${t.date}</td><td>${dirBadge(t.dir)} ${t.type}</td><td>${t.party||'—'}</td><td>${fa(t.items.length)}</td><td>${status(t.status)}</td></tr>`).join('')}</tbody></table></div></section>`;
+}
+function partyList(dir){
+ return dir==='out'||$('#doctype')?.value==='مرجوعی از مشتری' ? db.customers : db.suppliers;
+}
+function partyInput(dir){
+ const isCustomer=dir==='out'||$('#doctype')?.value==='مرجوعی از مشتری';
+ const arr=partyList(dir);
+ return `<div class="field"><label>${dir==='out'?'مشتری (الزامی)':isCustomer?'مشتری مرجوع‌کننده':'تأمین‌کننده'}</label>
+ <input id="partysearch" list="partychoices" autocomplete="off" placeholder="جستجوی کد یا نام..." oninput="partySelected('${dir}')">
+ <datalist id="partychoices">${arr.map(x=>`<option value="${x.code} — ${x.name}"></option>`).join('')}</datalist><input id="partycode" type="hidden"></div>`;
+}
+function movement(dir){
+ draft=[]; const incoming=dir==='in';
+ return head(incoming?'ثبت ورود به انبار':'ثبت خروج از انبار',incoming?'ثبت رسید ورود چند قلم کالا':'ثبت حواله خروج به مشتری')+
+ `<div class="notice">${incoming?'در نوع «مرجوعی از مشتری»، فهرست مشتریان نمایش داده می‌شود؛ در نوع تأمین‌کننده، فهرست تأمین‌کنندگان.':'مشتری و شهر ارسال الزامی است. شماره خروجی یکتا به‌صورت خودکار ساخته می‌شود.'}</div>
+ <section class="panel formpanel"><h3 class="sectitle">اطلاعات سند</h3><div class="formgrid">
+ <div class="field"><label>تاریخ شمسی *</label><input id="docdate" data-jdp data-jdp-only-date value="${jalaliToday()}" placeholder="۱۴۰۵/۰۸/۱۸"></div>
+ <div class="field"><label>نوع ${incoming?'ورود':'خروج'} *</label><select id="doctype" onchange="refreshParty('${dir}')">${(incoming?['از تأمین‌کننده','مرجوعی از مشتری','اضافه انبارگردانی','انتقال از انبار دیگر','سایر موارد']:['فروش','ضایعات','ارسال به شعبه دیگر','مصرف داخلی','انتقال به انبار دیگر','سایر موارد']).map(x=>`<option>${x}</option>`).join('')}</select></div>
+ <div class="field"><label>شماره فاکتور (فقط عدد)</label><input id="invoice" inputmode="numeric" oninput="onlyDigits(this)" placeholder="مثلاً 240125"></div>
+ <div id="partyfield">${partyInput(dir)}</div>
+ ${dir==='out'?`<div class="customerbox"><div><small>آدرس مشتری</small><br><b id="paddress">پس از انتخاب مشتری نمایش داده می‌شود</b></div><div><small>شماره تماس</small><br><b id="pphone">—</b></div><div class="field"><label>شهر ارسال *</label><select id="shipcity"><option value="">انتخاب شهر</option>${['تهران','کرج','اصفهان','مشهد','شیراز','تبریز','قم','رشت','اهواز','سایر'].map(x=>`<option>${x}</option>`).join('')}</select></div></div>`:''}
+ <div class="field span2"><label>توضیحات کلی سند</label><input id="docnote" placeholder="توضیحات تکمیلی"></div></div>
+ <hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3 class="sectitle">افزودن اقلام سند</h3>
+ <div class="itembox"><div class="itemgrid">
+ <div class="field"><label>دسته‌بندی *</label><select id="cat" onchange="productOptions()"><option value="">انتخاب دسته</option>${db.cats.map(x=>`<option>${x}</option>`).join('')}</select></div>
+ <div class="field"><label>نام کالا *</label><select id="pid" onchange="productMeta()"><option value="">ابتدا دسته را انتخاب کنید</option></select></div>
+ <div class="field"><label>تعداد واحد اصلی *</label><input id="qtymain" type="number" min="0" step="1" inputmode="numeric" oninput="integerOnly(this)" placeholder="عدد صحیح"><div class="subhint" id="mainunit">واحد اصلی</div></div>
+ <div class="field"><label>تعداد جزء</label><input id="qtysub" type="number" min="0" step="1" inputmode="numeric" oninput="integerOnly(this)" placeholder="۰"><div class="subhint" id="subunit">واحد فرعی</div></div>
+ <div class="field"><label>${incoming?'تاریخ انقضا شمسی':'موجودی فعلی'}</label>${incoming?'<input id="expiry" data-jdp data-jdp-only-date placeholder="۱۴۰۵/۰۹/۰۱">':'<input id="stock" readonly>'}</div>
+ <div class="field"><label>${incoming?'شماره بچ (فقط عدد)':'کنترل موجودی'}</label>${incoming?'<input id="batch" inputmode="numeric" oninput="onlyDigits(this)">':'<input readonly value="کنترل خودکار">'}</div></div>
+ <div class="field" style="margin-top:10px"><label>توضیحات / مغایرت قلم</label><input id="itemnote" placeholder="در صورت وجود مغایرت"></div>
+ <div class="actions"><span class="hint" id="itemhint">مقادیر اصلی و جزء فقط عدد صحیح هستند.</span><button class="btn primary" onclick="addItem('${dir}')">＋ افزودن به لیست سند</button></div></div>
+ <div style="margin-top:20px"><div class="panelhead" style="padding:0 0 10px;border:0"><h3>اقلام فاکتور <span class="badge blue" id="count">۰ قلم</span></h3></div>
+ <div class="tablewrap"><table><thead><tr><th>کالا</th><th>تعداد</th><th>واحد</th><th>${incoming?'انقضا / بچ':'موجودی فعلی'}</th><th>توضیحات</th><th>عملیات</th></tr></thead><tbody id="draftrows"><tr><td colspan="6" class="empty">هنوز کالایی اضافه نشده است.</td></tr></tbody></table></div></div>
+ <div class="actions"><span class="hint">موجودی فقط پس از تأیید مدیر تغییر می‌کند.</span><button class="btn success" onclick="submitDoc('${dir}')">ثبت نهایی و ارسال برای تأیید ←</button></div></section>`;
+}
+function refreshParty(dir){$('#partyfield').innerHTML=partyInput(dir);}
+function partySelected(dir){
+ const value=$('#partysearch').value,party=findParty(partyList(dir),value);
+ $('#partycode').value=party?.code||'';
+ if(dir==='out'){
+  $('#paddress').textContent=party?.address||'مشتری انتخاب نشده';
+  $('#pphone').textContent=party?.phone||'—';
+  if(party?.city)$('#shipcity').value=party.city;
+ }
+}
+function productOptions(){
+ const cat=$('#cat').value;
+ $('#pid').innerHTML='<option value="">انتخاب کالا</option>'+db.products.filter(p=>p.cat===cat).map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+ productMeta();
+}
+function productMeta(){
+ const p=prod($('#pid').value);if(!p)return;
+ $('#mainunit').textContent='واحد اصلی: '+p.unit;
+ $('#subunit').textContent=p.subUnit?`واحد جزء: ${p.subUnit} (هر ۱ ${p.unit} = ${fa(p.ratio)} ${p.subUnit})`:'برای این کالا واحد جزء تعریف نشده';
+ $('#qtysub').disabled=!p.subUnit;if(!p.subUnit)$('#qtysub').value='0';
+ if($('#stock'))$('#stock').value=showQty(p,p.stockBase??p.stock);
+ $('#itemhint').textContent=`کد کالا: ${p.id} | موجودی: ${showQty(p,p.stockBase??p.stock)}`;
+}
+function integerOnly(el){el.value=latinDigits(el.value).replace(/[^0-9]/g,'').replace(/^0+(?=\d)/,'');}
+function addItem(dir){
+ const p=prod($('#pid').value),m=Number($('#qtymain').value),s=Number($('#qtysub').value||0);
+ if(!p)return toast('لطفاً کالا را انتخاب کنید.',true);
+ if(!Number.isInteger(m)||m<0||!Number.isInteger(s)||s<0||m+s===0)return toast('تعداد اصلی و جزء باید عدد صحیح باشند و مجموع آن‌ها بیشتر از صفر باشد.',true);
+ if(!p.subUnit&&s!==0)return toast('برای این کالا واحد فرعی تعریف نشده است.',true);
+ if(p.subUnit&&s>=(p.ratio||1))return toast(`تعداد جزء باید کمتر از ${fa(p.ratio)} باشد.`,true);
+ const base=baseQty(p,m,s),already=draft.filter(x=>x.pid===p.id).reduce((a,x)=>a+x.baseQty,0),stock=p.stockBase??p.stock;
+ if(dir==='out'&&base+already>stock)return toast('موجودی کافی نیست؛ موجودی فعلی '+showQty(p,stock)+' است.',true);
+ draft.push({pid:p.id,qtyMain:m,qtySub:s,unit:p.unit,subUnit:p.subUnit||'',ratio:p.ratio||1,baseQty:base,expiry:$('#expiry')?.value||'',batch:$('#batch')?.value||'',note:$('#itemnote').value,stockAtAdd:stock});
+ drawDraft(dir);$('#qtymain').value='';$('#qtysub').value='0';if($('#expiry'))$('#expiry').value='';if($('#batch'))$('#batch').value='';$('#itemnote').value='';
+}
+function drawDraft(dir){
+ $('#count').textContent=fa(draft.length)+' قلم';
+ $('#draftrows').innerHTML=draft.length?draft.map((x,i)=>{let p=prod(x.pid);return `<tr><td><b>${p.name}</b><small class="muted">${p.id}</small></td><td>${fa(x.qtyMain)} + ${fa(x.qtySub)}</td><td>${x.unit}${x.subUnit?' / '+x.subUnit:''}</td><td>${dir==='in'?(x.expiry||'—')+' / '+(x.batch||'—'):showQty(p,x.stockAtAdd)}</td><td>${x.note||'—'}</td><td><button class="btn danger sm" onclick="removeDraft(${i},'${dir}')">حذف</button></td></tr>`}).join(''):'<tr><td colspan="6" class="empty">هنوز کالایی اضافه نشده است.</td></tr>';
+}
+function removeDraft(i,dir){draft.splice(i,1);drawDraft(dir);}
+function submitDoc(dir){
+ if(!draft.length)return toast('حداقل یک قلم به سند اضافه کنید.',true);
+ const date=$('#docdate').value;if(!date)return toast('تاریخ شمسی الزامی است.',true);
+ const party=findParty(partyList(dir),$('#partycode').value);
+ if(dir==='out'&&!party)return toast('انتخاب مشتری از فهرست الزامی است.',true);
+ if(dir==='in'&&$('#partysearch').value.trim()&&!party)return toast('طرف حساب را از فهرست انتخاب کنید.',true);
+ if(dir==='out'&&!$('#shipcity').value)return toast('شهر ارسال الزامی است.',true);
+ if(dir==='out'&&draft.some(x=>draft.filter(y=>y.pid===x.pid).reduce((a,y)=>a+y.baseQty,0)>(prod(x.pid).stockBase??prod(x.pid).stock)))return toast('موجودی یکی از کالاها کافی نیست.',true);
+ const outNo=dir==='out'?'OUT-'+String(1001+db.tx.filter(t=>t.dir==='out').length).padStart(4,'0'):'';
+ db.tx.unshift({id:'WH-'+idgen(),outNo,date,dir,type:$('#doctype').value,invoice:latinDigits($('#invoice').value),partyCode:party?.code||'',party:party?.name||'',partyAddress:party?.address||'',partyPhone:party?.phone||'',city:dir==='out'?$('#shipcity').value:'',status:'pending',items:draft.map(x=>({...x})),note:$('#docnote').value});
+ save();draft=[];toast('درخواست ثبت شد و جهت تأیید به مدیریت ارسال گردید.');go(dir==='out'?'outlist':'history');
+}
+function approve(id){
+ const t=db.tx.find(x=>x.id===id);if(!t||t.status!=='pending')return;
+ for(const x of t.items){const p=prod(x.pid),need=x.baseQty??(x.qtyMain||x.qty||0)*(p.ratio||1);if(t.dir==='out'&&(p.stockBase??p.stock)<need)return toast('موجودی برای تأیید خروج کافی نیست.',true);}
+ t.items.forEach(x=>{const p=prod(x.pid),q=x.baseQty??(x.qtyMain||x.qty||0)*(p.ratio||1);if(p.stockBase===undefined)p.stockBase=p.stock||0;p.stockBase+=t.dir==='in'?q:-q;if(t.dir==='in'&&x.expiry){p.expiry=x.expiry;p.hasExpiry=true;}});
+ t.status='approved';t.approvedAt=jalaliToday();save();toast('سند تأیید شد و موجودی به‌روزرسانی شد.');go(t.dir==='out'?'outlist':'history');
+}
+function inventory(){
+ return head('موجودی انبار','نمای لحظه‌ای موجودی، واحد اصلی و جزء، حداقل موجودی و انقضا',`<button class="btn outline" onclick="csv('inventory')">⇩ خروجی CSV</button>`)+
+ `<section class="panel"><div class="filters"><div class="field"><label>جستجوی کالا</label><input id="isearch" oninput="filterInv()" placeholder="نام یا کد کالا"></div><div class="field"><label>دسته‌بندی</label><select id="icat" onchange="filterInv()"><option value="">همه دسته‌ها</option>${db.cats.map(x=>`<option>${x}</option>`).join('')}</select></div></div>
+ <div class="tablewrap"><table><thead><tr><th>کد کالا</th><th>نام کالا</th><th>دسته</th><th>واحد اصلی / جزء</th><th>موجودی فعلی</th><th>حداقل</th><th>انقضا</th></tr></thead><tbody id="invrows">${invRows(db.products)}</tbody></table></div></section>`;
+}
+function invRows(list){return list.map(p=>{const stock=p.stockBase??p.stock,min=(p.minBase??p.min)*(p.ratio||1);return `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.cat}</td><td>${p.unit}${p.subUnit?' / '+p.subUnit:''}</td><td><b>${showQty(p,stock)}</b></td><td>${fa(p.min)} ${p.unit}</td><td>${stock<=min?'<span class="badge red">کمبود موجودی</span>':'<span class="badge green">مناسب</span>'} ${p.hasExpiry&&p.expiry?`<small>${p.expiry}</small>`:''}</td></tr>`}).join('')||'<tr><td colspan="7" class="empty">کالایی یافت نشد.</td></tr>';}
+function filterInv(){const q=$('#isearch').value.toLowerCase(),c=$('#icat').value;$('#invrows').innerHTML=invRows(db.products.filter(p=>(p.name.toLowerCase().includes(q)||p.id.toLowerCase().includes(q))&&(!c||p.cat===c)));}
+function outlist(){
+ const list=db.tx.filter(t=>t.dir==='out');
+ return head('لیست خروجی‌ها','فاکتورهای خروج بر اساس شماره خروجی، مشتری و شهر ارسال',`<button class="btn primary" onclick="go('outbound')">＋ ثبت خروج جدید</button>`)+
+ `<section class="panel"><div class="filters"><div class="field"><label>شماره خروجی</label><input id="osearch" oninput="filterOut()" placeholder="OUT-1001"></div><div class="field"><label>نام مشتری</label><input id="ocustomer" oninput="filterOut()" placeholder="نام مشتری"></div><div class="field"><label>شهر ارسال</label><select id="ocity" onchange="filterOut()"><option value="">همه شهرها</option>${[...new Set(list.map(t=>t.city).filter(Boolean))].map(x=>`<option>${x}</option>`).join('')}</select></div></div>
+ <div class="tablewrap"><table><thead><tr><th>شماره خروجی</th><th>تاریخ شمسی</th><th>فاکتور</th><th>کد / مشتری</th><th>شهر ارسال</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="outrows">${outRows(list)}</tbody></table></div></section>`;
+}
+function outRows(list){return list.map(t=>`<tr><td><span class="docno">${t.outNo||'—'}</span></td><td>${t.date}</td><td>${t.invoice||'—'}</td><td>${t.partyCode||''} ${t.party||'—'}</td><td>${t.city||'—'}</td><td>${status(t.status)}</td><td><button class="btn light sm" onclick="printOut('${t.id}')">نمایش / چاپ</button></td></tr>`).join('')||'<tr><td colspan="7" class="empty">فاکتور خروجی ثبت نشده است.</td></tr>';}
+function filterOut(){const q=$('#osearch').value.toLowerCase(),c=$('#ocustomer').value.toLowerCase(),city=$('#ocity').value;$('#outrows').innerHTML=outRows(db.tx.filter(t=>t.dir==='out'&&(!q||(t.outNo||'').toLowerCase().includes(q))&&(!c||(t.party||'').toLowerCase().includes(c))&&(!city||t.city===city)));}
+function printOut(id){
+ const t=db.tx.find(x=>x.id===id),w=window.open('','_blank','width=850,height=700');if(!w)return toast('پنجره چاپ توسط مرورگر مسدود شد.',true);
+ w.document.write(`<html lang="fa" dir="rtl"><meta charset="utf-8"><title>${t.outNo}</title><style>body{font-family:Tahoma;padding:30px}h2{text-align:center}table{width:100%;border-collapse:collapse;margin-top:25px}td,th{border:1px solid #ccc;padding:10px;text-align:right}.no{font-size:20px;color:#17677b;font-weight:bold}</style><h2>فاکتور خروج از انبار</h2><p class="no">${t.outNo}</p><p>تاریخ: ${t.date} | شماره فاکتور: ${t.invoice||'—'}</p><p>مشتری: ${t.party} (${t.partyCode}) | شهر ارسال: ${t.city}</p><p>آدرس: ${t.partyAddress||'—'} | تلفن: ${t.partyPhone||'—'}</p><table><tr><th>کالا</th><th>تعداد</th><th>واحد</th></tr>${t.items.map(x=>`<tr><td>${prod(x.pid)?.name||x.pid}</td><td>${fa(x.qtyMain)} ${fa(x.qtySub)}</td><td>${x.unit}${x.subUnit?' / '+x.subUnit:''}</td></tr>`).join('')}</table><p>وضعیت: ${t.status==='approved'?'تأیید شده':t.status==='pending'?'در انتظار تأیید':'رد شده'}</p><script>window.onload=()=>window.print()<\/script></html>`);w.document.close();
+}
+function customers(){return partyAdmin('customers','مشتریان','C-');}
+function suppliers(){return partyAdmin('suppliers','تأمین‌کنندگان','S-');}
+function partyAdmin(key,title,prefix){
+ return head('مدیریت '+title,'کد عددی یکتا، نام، نشانی و شماره تماس',`<button class="btn primary" onclick="newParty('${key}','${prefix}')">＋ افزودن</button>`)+
+ `<section class="panel"><div class="tablewrap"><table><thead><tr><th>کد</th><th>نام</th><th>شماره تماس</th><th>آدرس</th><th>شهر</th></tr></thead><tbody>${db[key].map(x=>`<tr><td><b>${x.code}</b></td><td>${x.name}</td><td>${x.phone||'—'}</td><td>${x.address||'—'}</td><td>${x.city||'—'}</td></tr>`).join('')}</tbody></table></div></section>`;
+}
+function newParty(key,prefix){
+ modal('افزودن '+(key==='customers'?'مشتری':'تأمین‌کننده'),`<div class="formgrid" style="grid-template-columns:1fr 1fr"><div class="field"><label>کد عددی (فقط عدد) *</label><input id="pcoden" inputmode="numeric" oninput="onlyDigits(this)"></div><div class="field"><label>نام *</label><input id="pname"></div><div class="field"><label>شماره تماس</label><input id="pphoneadd" inputmode="numeric" oninput="onlyDigits(this)"></div><div class="field"><label>شهر</label><input id="pcity"></div><div class="field" style="grid-column:span 2"><label>آدرس</label><input id="paddressadd"></div></div>`,()=>{
+ const code=latinDigits($('#pcoden').value),name=$('#pname').value.trim();
+ if(!code||!name)return toast('کد عددی و نام الزامی است.',true);
+ if([...db.customers,...db.suppliers].some(x=>x.code===prefix+'-'+code))return toast('این کد قبلاً ثبت شده است.',true);
+ db[key].push({code:prefix+'-'+code,name,phone:latinDigits($('#pphoneadd').value),city:$('#pcity').value,address:$('#paddressadd').value});
+ save();closeModal();toast('اطلاعات ثبت شد.');go(key);
+ });
+}
+function products(){
+ return head('تعریف کالا و واحد سنجش','برای هر کالا واحد اصلی و در صورت نیاز واحد فرعی تعریف کنید',`<button class="btn primary" onclick="newProduct()">＋ تعریف کالای جدید</button>`)+
+ `<section class="panel"><div class="panelhead"><h3>فهرست کالاها</h3><span class="badge blue">${fa(db.products.length)} کالا</span></div><div class="tablewrap"><table><thead><tr><th>کد</th><th>نام کالا</th><th>دسته</th><th>واحد اصلی / جزء</th><th>نسبت تبدیل</th><th>موجودی</th></tr></thead><tbody>${db.products.map(p=>`<tr><td>${p.id}</td><td>${p.name}</td><td>${p.cat}</td><td>${p.unit}${p.subUnit?' / '+p.subUnit:''}</td><td>${p.subUnit?'۱ '+p.unit+' = '+fa(p.ratio)+' '+p.subUnit:'—'}</td><td>${showQty(p,p.stockBase??p.stock)}</td></tr>`).join('')}</tbody></table></div><div class="panelbody"><b>واحدهای سنجش:</b> ${db.units.map(x=>`<span class="badge gray">${x}</span>`).join(' ')}<div class="actions"><div class="field"><label>افزودن واحد جدید</label><input id="newunit" placeholder="مثلاً رول"></div><button class="btn primary" onclick="addUnitV2()">افزودن واحد</button><div class="field"><label>افزودن دسته‌بندی</label><input id="newcat" placeholder="نام دسته"></div><button class="btn primary" onclick="addCatV2()">افزودن دسته</button></div></div></section>`;
+}
+function newProduct(){
+ modal('تعریف کالای جدید',`<div class="formgrid" style="grid-template-columns:1fr 1fr"><div class="field"><label>کد کالا (فقط عدد) *</label><input id="npid" inputmode="numeric" oninput="onlyDigits(this)"></div><div class="field"><label>نام کالا *</label><input id="npname"></div><div class="field"><label>دسته</label><select id="npcat">${db.cats.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>واحد اصلی</label><select id="npunit">${db.units.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>واحد فرعی (اختیاری)</label><select id="npsub"><option value="">بدون واحد فرعی</option>${db.units.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>تعداد جزء در هر واحد اصلی</label><input id="npratio" type="number" min="2" step="1" value="1" oninput="integerOnly(this)"></div><div class="field"><label>موجودی اولیه (واحد اصلی)</label><input id="npstock" type="number" min="0" step="1" value="0" oninput="integerOnly(this)"></div><div class="field"><label>حداقل موجودی (واحد اصلی)</label><input id="npmin" type="number" min="0" step="1" value="5" oninput="integerOnly(this)"></div><div class="field"><label>دارای تاریخ انقضا؟</label><select id="npexp"><option value="no">خیر</option><option value="yes">بله</option></select></div></div>`,()=>{
+ const id=latinDigits($('#npid').value),name=$('#npname').value.trim(),sub=$('#npsub').value,ratio=Number($('#npratio').value);
+ if(!id||!name)return toast('کد عددی و نام کالا الزامی است.',true);
+ if(db.products.some(p=>p.id===id))return toast('کد کالا تکراری است.',true);
+ if(sub&&(!Number.isInteger(ratio)||ratio<2))return toast('نسبت تبدیل باید عدد صحیح و حداقل ۲ باشد.',true);
+ db.products.push({id,name,cat:$('#npcat').value,unit:$('#npunit').value,subUnit:sub,ratio:sub?ratio:1,stockBase:Number($('#npstock').value||0)*(sub?ratio:1),min:Number($('#npmin').value||0),hasExpiry:$('#npexp').value==='yes',expiry:''});
+ save();closeModal();toast('کالا تعریف شد.');go('products');
+ });
+}
+function addUnitV2(){const v=$('#newunit').value.trim();if(!v)return;if(!db.units.includes(v))db.units.push(v);save();go('products');}
+function addCatV2(){const v=$('#newcat').value.trim();if(!v)return;if(!db.cats.includes(v))db.cats.push(v);save();go('products');}
+function csv(type){
+ const rows=type==='inventory'?[['کد','نام','دسته','واحد','موجودی'],...db.products.map(p=>[p.id,p.name,p.cat,p.unit,showQty(p,p.stockBase??p.stock)])]:[['سند','شماره خروجی','تاریخ شمسی','جهت','نوع','طرف حساب','شهر','فاکتور','وضعیت'],...db.tx.map(t=>[t.id,t.outNo,t.date,t.dir,t.type,t.party,t.city,t.invoice,t.status])];
+ const text='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));a.download=type+'.csv';a.click();URL.revokeObjectURL(a.href);
+}
+$('#today').textContent=jalaliToday();
+render('dashboard');
+
+/* ===== اصلاحات تکمیلی نسخه پایدار ===== */
+function digitsOnly(v){return String(v??'').replace(/[^\d۰-۹٠-٩]/g,'').replace(/[۰-۹]/g,c=>String('۰۱۲۳۴۵۶۷۸۹'.indexOf(c))).replace(/[٠-٩]/g,c=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(c)));}
+function displayDate(v){
+ if(!v)return '—';
+ const s=String(v);
+ if(/^\d{4}[\/-]\d{1,2}[\/-]\d{1,2}$/.test(s)){
+   if(s.includes('/'))return s.replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+   return new Date(s+'T00:00:00').toLocaleDateString('fa-IR');
+ }
+ return s;
+}
+function nextNumericCode(list,field){
+ const max=(list||[]).reduce((m,x)=>Math.max(m,Number(digitsOnly(x[field]))||0),0);
+ return String(max+1);
+}
+/* یکسان‌سازی کدهای قدیمی؛ شناسه داخلی سند حفظ می‌شود. */
+(function normalizeNumericCodes(){
+ const map={};
+ db.products.forEach(p=>{
+   const old=String(p.id),n=digitsOnly(old)||'1';map[old]=n;p.id=n;
+ });
+ db.tx.forEach(t=>{
+   (t.items||[]).forEach(x=>{if(map[String(x.pid)])x.pid=map[String(x.pid)];});
+   if(t.invoice)t.invoice=digitsOnly(t.invoice);
+   if(t.outNo)t.outNo=digitsOnly(t.outNo);
+ });
+ db.customers=(db.customers||[]).map(x=>({...x,code:digitsOnly(x.code)}));
+ db.suppliers=(db.suppliers||[]).map(x=>typeof x==='string'?{code:'',name:x,phone:'',address:'',city:''}:{...x,code:digitsOnly(x.code)});
+ db.suppliers.forEach((x,i)=>{if(!x.code)x.code=String(2001+i);});
+ db.invoiceCounter=Number(db.invoiceCounter)||116;
+ db.tx.forEach(t=>{if(t.dir==='out'&&!t.outNo)t.outNo=String(1000+db.tx.filter(x=>x.dir==='out').indexOf(t)+1);});
+ save();
+})();
+function dashboard(){
+ const low=db.products.filter(p=>(p.stockBase??p.stock)<=((p.minBase??p.min)*(p.ratio||1))).length;
+ const pending=db.tx.filter(t=>t.status==='pending').length;
+ const todayTx=db.tx.filter(t=>t.date===jalaliToday()||t.date===today()).length;
+ const incoming=db.tx.filter(t=>t.dir==='in'&&t.status==='approved').length;
+ const outgoing=db.tx.filter(t=>t.dir==='out'&&t.status==='approved').length;
+ const totalItems=db.products.length;
+ return head('داشبورد انبار','نمای کلی وضعیت موجودی و گردش کالا',`<button class="btn primary" onclick="go('inbound')">＋ ثبت ورود جدید</button>`) +
+ `<div class="stats">
+ <div class="stat"><div class="statlabel">تراکنش‌های امروز <span class="staticon">⇄</span></div><strong>${fa(todayTx)}</strong><small>اسناد ثبت‌شده در امروز</small></div>
+ <div class="stat"><div class="statlabel">تعداد کالاها <span class="staticon">▤</span></div><strong>${fa(totalItems)}</strong><small>کالاهای تعریف‌شده در انبار</small></div>
+ <div class="stat"><div class="statlabel">کالاهای در حال اتمام <span class="staticon">⚠</span></div><strong>${fa(low)}</strong><small>نیازمند بررسی و تأمین</small></div>
+ <div class="stat"><div class="statlabel">در انتظار تأیید <span class="staticon">◷</span></div><strong>${fa(pending)}</strong><small>درخواست‌های بررسی‌نشده</small></div>
+ <div class="stat"><div class="statlabel">ورودی‌های تأییدشده <span class="staticon">↙</span></div><strong>${fa(incoming)}</strong><small>اسناد ورود تأییدشده</small></div>
+ <div class="stat"><div class="statlabel">خروجی‌های تأییدشده <span class="staticon">↗</span></div><strong>${fa(outgoing)}</strong><small>اسناد خروج تأییدشده</small></div>
+ </div>
+ <div class="twocol"><section class="panel"><div class="panelhead"><h3>آخرین تراکنش‌ها</h3><button class="btn light sm" onclick="go('history')">مشاهده همه</button></div>
+ <div class="tablewrap"><table><thead><tr><th>شماره سند / خروجی</th><th>تاریخ شمسی</th><th>جهت</th><th>طرف حساب / مشتری</th><th>اقلام</th><th>وضعیت</th></tr></thead><tbody>
+ ${db.tx.slice(0,7).map(t=>`<tr><td><b>${digitsOnly(t.outNo||t.id)||'—'}</b></td><td>${displayDate(t.date)}</td><td>${dirBadge(t.dir)} ${t.type}</td><td>${t.dir==='out'?(t.party||'—'):(t.party||'—')}</td><td>${fa((t.items||[]).length)}</td><td>${status(t.status)}</td></tr>`).join('')||'<tr><td colspan="6" class="empty">تراکنشی ثبت نشده است.</td></tr>'}
+ </tbody></table></div></section>
+ <section class="panel"><div class="panelhead"><h3>نمای گردش هفتگی</h3><span class="badge blue">نمای کلی</span></div><div class="panelbody"><div class="chart">${[35,58,42,75,52,88,64].map((v,i)=>`<div class="barcol"><b class="muted">${fa(v)}</b><div class="bar" style="height:${v}%"></div><small>${['ش','ی','د','س','چ','پ','ج'][i]}</small></div>`).join('')}</div><div class="muted" style="margin-top:12px">نمایش نمونه‌ای از روند گردش کالا</div></div></section></div>
+ <section class="panel" style="margin-top:16px"><div class="panelhead"><h3>دسترسی سریع</h3></div><div class="panelbody"><div class="quick"><button onclick="go('inbound')"><span>↙</span><b>ثبت ورود به انبار</b><small class="muted">ثبت رسید جدید</small></button><button onclick="go('outbound')"><span>↗</span><b>ثبت خروج از انبار</b><small class="muted">ثبت حواله خروج</small></button><button onclick="go('inventory')"><span>▤</span><b>مشاهده موجودی</b><small class="muted">کنترل موجودی لحظه‌ای</small></button></div></div></section>`;
+}
+function movement(dir){
+ draft=[];const incoming=dir==='in';
+ const invoiceNo=incoming?String(db.invoiceCounter||116):'';
+ return head(incoming?'ثبت ورود به انبار':'ثبت خروج از انبار',incoming?'ثبت رسید ورود چند قلم کالا':'ثبت حواله خروج به مشتری')+
+ `<div class="notice">${incoming?'شماره فاکتور به‌صورت خودکار هنگام ثبت تولید می‌شود. در نوع مرجوعی از مشتری، فهرست مشتریان نمایش داده می‌شود.':'مشتری و شهر ارسال الزامی است؛ شماره خروجی به‌صورت خودکار تولید می‌شود.'}</div>
+ <section class="panel formpanel"><h3 class="sectitle">اطلاعات سند</h3><div class="formgrid">
+ <div class="field"><label>تاریخ شمسی *</label><input id="docdate" data-jdp data-jdp-only-date value="${jalaliToday()}" placeholder="۱۴۰۵/۰۸/۱۸"></div>
+ <div class="field"><label>نوع ${incoming?'ورود':'خروج'} *</label><select id="doctype" onchange="refreshParty('${dir}')">${(incoming?['از تأمین‌کننده','مرجوعی از مشتری','اضافه انبارگردانی','انتقال از انبار دیگر','سایر موارد']:['فروش','ضایعات','ارسال به شعبه دیگر','مصرف داخلی','انتقال به انبار دیگر','سایر موارد']).map(x=>`<option>${x}</option>`).join('')}</select></div>
+ <div class="field"><label>شماره فاکتور / سند</label><input id="invoice" value="${incoming?fa(invoiceNo):''}" readonly placeholder="خودکار هنگام ثبت"></div>
+ <div id="partyfield">${partyInput(dir)}</div>
+ ${dir==='out'?`<div class="customerbox"><div><small>آدرس مشتری</small><br><b id="paddress">پس از انتخاب مشتری نمایش داده می‌شود</b></div><div><small>شماره تماس</small><br><b id="pphone">—</b></div><div class="field"><label>شهر ارسال *</label><select id="shipcity"><option value="">انتخاب شهر</option>${['تهران','کرج','اصفهان','مشهد','شیراز','تبریز','قم','رشت','اهواز','سایر'].map(x=>`<option>${x}</option>`).join('')}</select></div></div>`:''}
+ <div class="field span2"><label>توضیحات کلی سند</label><input id="docnote" placeholder="توضیحات تکمیلی"></div></div>
+ <hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3 class="sectitle">افزودن اقلام سند</h3>
+ <div class="itembox"><div class="itemgrid itemgrid-fixed">
+ <div class="field"><label>دسته‌بندی *</label><select id="cat" onchange="productOptions()"><option value="">انتخاب دسته</option>${db.cats.map(x=>`<option>${x}</option>`).join('')}</select></div>
+ <div class="field"><label>نام کالا *</label><select id="pid" onchange="productMeta()"><option value="">ابتدا دسته را انتخاب کنید</option></select></div>
+ <div class="field"><label>تعداد واحد اصلی *</label><input id="qtymain" type="number" min="0" step="1" inputmode="numeric" oninput="integerOnly(this)" placeholder="عدد صحیح"><div class="subhint" id="mainunit">واحد اصلی</div></div>
+ <div class="field"><label>تعداد جزء</label><input id="qtysub" type="number" min="0" step="1" inputmode="numeric" oninput="integerOnly(this)" placeholder="۰"><div class="subhint" id="subunit">واحد فرعی؛ در صورت تعریف برای کالا</div></div>
+ <div class="field"><label>${incoming?'تاریخ انقضا شمسی':'موجودی فعلی'}</label>${incoming?'<input id="expiry" data-jdp data-jdp-only-date placeholder="۱۴۰۵/۰۹/۰۱">':'<input id="stock" readonly>'}</div>
+ <div class="field"><label>${incoming?'شماره بچ':'کنترل موجودی'}</label>${incoming?'<input id="batch" inputmode="numeric" oninput="integerOnly(this)">':'<input readonly value="کنترل خودکار">'}</div></div>
+ <div class="field" style="margin-top:10px"><label>توضیحات / مغایرت قلم</label><input id="itemnote" placeholder="در صورت وجود مغایرت"></div>
+ <div class="actions"><span class="hint" id="itemhint">پس از انتخاب کالا، واحد اصلی و فرعی مشخص می‌شود.</span><button class="btn primary" onclick="addItem('${dir}')">＋ افزودن به لیست سند</button></div></div>
+ <div style="margin-top:20px"><div class="panelhead" style="padding:0 0 10px;border:0"><h3>اقلام فاکتور <span class="badge blue" id="count">۰ قلم</span></h3></div>
+ <div class="tablewrap"><table><thead><tr><th>کالا</th><th>تعداد</th><th>واحد</th><th>${incoming?'انقضا / بچ':'موجودی فعلی'}</th><th>توضیحات</th><th>عملیات</th></tr></thead><tbody id="draftrows"><tr><td colspan="6" class="empty">هنوز کالایی اضافه نشده است.</td></tr></tbody></table></div></div>
+ <div class="actions"><span class="hint">موجودی فقط پس از تأیید مدیر تغییر می‌کند.</span><button class="btn success" onclick="submitDoc('${dir}')">ثبت نهایی و ارسال برای تأیید ←</button></div></section>`;
+}
+function productMeta(){
+ const p=prod($('#pid').value);if(!p)return;
+ $('#mainunit').textContent='واحد اصلی: '+p.unit;
+ $('#subunit').textContent=p.subUnit?`واحد جزء: ${p.subUnit} (هر ۱ ${p.unit} = ${fa(p.ratio)} ${p.subUnit})`:'واحد فرعی برای این کالا تعریف نشده؛ تعداد جزء را صفر بگذارید';
+ $('#qtysub').disabled=false;
+ if($('#stock'))$('#stock').value=showQty(p,p.stockBase??p.stock);
+ $('#itemhint').textContent=`کد کالا: ${p.id} | موجودی: ${showQty(p,p.stockBase??p.stock)}`;
+}
+function addItem(dir){
+ const p=prod($('#pid').value),m=Number($('#qtymain').value),s=Number($('#qtysub').value||0);
+ if(!p)return toast('لطفاً کالا را انتخاب کنید.',true);
+ if(!Number.isInteger(m)||m<0||!Number.isInteger(s)||s<0||m+s===0)return toast('تعداد اصلی و جزء باید عدد صحیح باشند و مجموع آن‌ها بیشتر از صفر باشد.',true);
+ if(!p.subUnit&&s>0)return toast('برای این کالا واحد فرعی تعریف نشده است؛ ابتدا در تعریف کالا واحد فرعی را تعیین کنید.',true);
+ if(p.subUnit&&s>=(p.ratio||1))return toast(`تعداد جزء باید کمتر از ${fa(p.ratio)} باشد.`,true);
+ const base=baseQty(p,m,s),already=draft.filter(x=>x.pid===p.id).reduce((a,x)=>a+x.baseQty,0),stock=p.stockBase??p.stock;
+ if(dir==='out'&&base+already>stock)return toast('موجودی کافی نیست؛ موجودی فعلی '+showQty(p,stock)+' است.',true);
+ draft.push({pid:p.id,qtyMain:m,qtySub:s,unit:p.unit,subUnit:p.subUnit||'',ratio:p.ratio||1,baseQty:base,expiry:$('#expiry')?.value||'',batch:$('#batch')?.value||'',note:$('#itemnote').value,stockAtAdd:stock});
+ drawDraft(dir);$('#qtymain').value='';$('#qtysub').value='0';if($('#expiry'))$('#expiry').value='';if($('#batch'))$('#batch').value='';$('#itemnote').value='';
+}
+function submitDoc(dir){
+ if(!draft.length)return toast('حداقل یک قلم به سند اضافه کنید.',true);
+ const date=$('#docdate').value;if(!date)return toast('تاریخ شمسی الزامی است.',true);
+ const party=findParty(partyList(dir),$('#partycode').value);
+ if(dir==='out'&&!party)return toast('انتخاب مشتری از فهرست الزامی است.',true);
+ if(dir==='in'&&$('#partysearch').value.trim()&&!party)return toast('طرف حساب را از فهرست انتخاب کنید.',true);
+ if(dir==='out'&&!$('#shipcity').value)return toast('شهر ارسال الزامی است.',true);
+ if(dir==='out'&&draft.some(x=>draft.filter(y=>y.pid===x.pid).reduce((a,y)=>a+y.baseQty,0)>(prod(x.pid).stockBase??prod(x.pid).stock)))return toast('موجودی یکی از کالاها کافی نیست.',true);
+ const invoice=dir==='in'?String(db.invoiceCounter||116):digitsOnly($('#invoice').value);
+ const maxOut=db.tx.filter(t=>t.dir==='out').reduce((m,t)=>Math.max(m,Number(digitsOnly(t.outNo))||0),1000);
+ const outNo=dir==='out'?String(maxOut+1):'';
+ db.tx.unshift({id:'WH-'+idgen(),outNo,date,dir,type:$('#doctype').value,invoice,partyCode:party?.code||'',party:party?.name||'',partyAddress:party?.address||'',partyPhone:party?.phone||'',city:dir==='out'?$('#shipcity').value:'',status:'pending',items:draft.map(x=>({...x})),note:$('#docnote').value});
+ if(dir==='in')db.invoiceCounter=Number(invoice)+1;
+ save();draft=[];toast('درخواست ثبت شد و جهت تأیید به مدیریت ارسال گردید.');go(dir==='out'?'outlist':'history');
+}
+function outlist(){
+ const list=db.tx.filter(t=>t.dir==='out');
+ return head('لیست خروجی‌ها','فهرست حواله‌ها با امکان جستجوی تاریخ، شهر و شماره خروجی',`<button class="btn primary" onclick="go('outbound')">＋ ثبت خروج جدید</button>`)+
+ `<section class="panel"><div class="filters">
+ <div class="field"><label>شماره خروجی</label><input id="osearch" inputmode="numeric" oninput="filterOut()" placeholder="مثلاً ۱۰۰۱"></div>
+ <div class="field"><label>تاریخ</label><input id="odate" data-jdp data-jdp-only-date oninput="filterOut()" placeholder="تاریخ شمسی"></div>
+ <div class="field"><label>نام شهر</label><input id="ocity" oninput="filterOut()" placeholder="جستجوی شهر"></div>
+ </div><div class="tablewrap"><table><thead><tr><th>شماره خروجی</th><th>تاریخ</th><th>شماره فاکتور</th><th>شهر ارسال</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="outrows">${outRows(list)}</tbody></table></div></section>`;
+}
+function outRows(list){
+ return list.map(t=>`<tr><td><span class="docno">${fa(digitsOnly(t.outNo)||'')}</span></td><td>${displayDate(t.date)}</td><td>${t.invoice?fa(digitsOnly(t.invoice)):'—'}</td><td>${t.city||'—'}</td><td>${status(t.status)}</td><td><button class="btn light sm" onclick="printOut('${t.id}')">نمایش / چاپ</button></td></tr>`).join('')||'<tr><td colspan="6" class="empty">فاکتور خروجی ثبت نشده است.</td></tr>';
+}
+function filterOut(){
+ const q=digitsOnly($('#osearch')?.value||''),d=$('#odate')?.value||'',c=($('#ocity')?.value||'').trim().toLowerCase();
+ $('#outrows').innerHTML=outRows(db.tx.filter(t=>t.dir==='out'&&(!q||digitsOnly(t.outNo).includes(q))&&(!d||String(t.date).includes(d))&&(!c||(t.city||'').toLowerCase().includes(c))));
+}
+function histRows(list){
+ return list.length?list.map(t=>`<tr><td><b>${digitsOnly(t.id)||'—'}</b></td><td>${displayDate(t.date)}</td><td>${dirBadge(t.dir)}</td><td>${t.type}</td><td>${t.invoice?fa(digitsOnly(t.invoice)):'—'}</td><td>${fa((t.items||[]).length)}</td><td>${status(t.status)}</td><td><button class="btn light sm" onclick="showTx('${t.id}')">جزئیات</button> ${t.status==='pending'?`<button class="btn success sm" onclick="approve('${t.id}')">تأیید</button> <button class="btn danger sm" onclick="reject('${t.id}')">رد</button>`:''}</td></tr>`).join(''):'<tr><td colspan="8" class="empty">تراکنشی یافت نشد.</td></tr>';
+}
+function filterHist(){
+ let f=$('#hfrom').value,t=$('#hto').value,d=$('#hdir').value,s=$('#hstatus').value,q=digitsOnly($('#hsearch').value);
+ $('#histrows').innerHTML=histRows(db.tx.filter(x=>(!f||x.date>=f)&&(!t||x.date<=t)&&(!d||x.dir===d)&&(!s||x.status===s)&&(!q||digitsOnly(x.id).includes(q)||digitsOnly(x.invoice||'').includes(q))));
+}
+function partyAdmin(key,title,prefix){
+ const arr=db[key]||[];
+ return head('مدیریت '+title,'کد عددی خودکار، نام، نشانی و شماره تماس',`<button class="btn primary" onclick="newParty('${key}','${prefix}')">＋ افزودن</button>`)+
+ `<section class="panel"><div class="tablewrap"><table><thead><tr><th>کد</th><th>نام</th><th>شماره تماس</th><th>آدرس</th><th>شهر</th></tr></thead><tbody>${arr.map(x=>`<tr><td><b>${fa(digitsOnly(x.code))}</b></td><td>${x.name}</td><td>${x.phone||'—'}</td><td>${x.address||'—'}</td><td>${x.city||'—'}</td></tr>`).join('')}</tbody></table></div></section>`;
+}
+function newParty(key,prefix){
+ const code=nextNumericCode(db[key],'code');
+ modal('افزودن '+(key==='customers'?'مشتری':'تأمین‌کننده'),`<div class="formgrid" style="grid-template-columns:1fr 1fr"><div class="field"><label>کد سیستمی</label><input id="pcoden" value="${fa(code)}" readonly></div><div class="field"><label>نام *</label><input id="pname"></div><div class="field"><label>شماره تماس</label><input id="pphoneadd" inputmode="numeric" oninput="integerOnly(this)"></div><div class="field"><label>شهر</label><input id="pcity"></div><div class="field" style="grid-column:span 2"><label>آدرس</label><input id="paddressadd"></div></div>`,()=>{
+ const finalCode=digitsOnly($('#pcoden').value),name=$('#pname').value.trim();
+ if(!name)return toast('نام الزامی است.',true);
+ if([...db.customers,...db.suppliers].some(x=>digitsOnly(x.code)===finalCode))return toast('کد تکراری است؛ صفحه را تازه‌سازی کنید.',true);
+ db[key].push({code:finalCode,name,phone:digitsOnly($('#pphoneadd').value),city:$('#pcity').value,address:$('#paddressadd').value});
+ save();closeModal();toast('اطلاعات ثبت شد.');go(key);
+ });
+}
+function newProduct(){
+ const code=nextNumericCode(db.products,'id');
+ modal('تعریف کالای جدید',`<div class="formgrid" style="grid-template-columns:1fr 1fr"><div class="field"><label>کد کالا (خودکار)</label><input id="npid" value="${fa(code)}" readonly></div><div class="field"><label>نام کالا *</label><input id="npname"></div><div class="field"><label>دسته</label><select id="npcat">${db.cats.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>واحد اصلی</label><select id="npunit">${db.units.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>واحد فرعی (اختیاری)</label><select id="npsub"><option value="">بدون واحد فرعی</option>${db.units.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>تعداد جزء در هر واحد اصلی</label><input id="npratio" type="number" min="2" step="1" value="1" oninput="integerOnly(this)"></div><div class="field"><label>موجودی اولیه (واحد اصلی)</label><input id="npstock" type="number" min="0" step="1" value="0" oninput="integerOnly(this)"></div><div class="field"><label>حداقل موجودی (واحد اصلی)</label><input id="npmin" type="number" min="0" step="1" value="5" oninput="integerOnly(this)"></div><div class="field"><label>دارای تاریخ انقضا؟</label><select id="npexp"><option value="no">خیر</option><option value="yes">بله</option></select></div></div>`,()=>{
+ const id=digitsOnly($('#npid').value),name=$('#npname').value.trim(),sub=$('#npsub').value,ratio=Number($('#npratio').value);
+ if(!id||!name)return toast('نام کالا الزامی است.',true);
+ if(db.products.some(p=>digitsOnly(p.id)===id))return toast('کد کالا تکراری است.',true);
+ if(sub&&(!Number.isInteger(ratio)||ratio<2))return toast('نسبت تبدیل باید عدد صحیح و حداقل ۲ باشد.',true);
+ db.products.push({id,name,cat:$('#npcat').value,unit:$('#npunit').value,subUnit:sub,ratio:sub?ratio:1,stockBase:Number($('#npstock').value||0)*(sub?ratio:1),min:Number($('#npmin').value||0),hasExpiry:$('#npexp').value==='yes',expiry:''});
+ save();closeModal();toast('کالا تعریف شد.');go('products');
+ });
+}
+/* تنظیم گرید برای جلوگیری از شکستن ردیف فیلدهای اقلام */
+(function addLayoutFix(){
+ const st=document.createElement('style');
+ st.textContent=`
+ .itemgrid-fixed{display:grid;grid-template-columns:1.05fr 1.25fr .9fr .8fr 1fr .9fr;gap:10px;align-items:end}
+ .itemgrid-fixed>.field{min-width:0}
+ .itemgrid-fixed .field label{min-height:22px;line-height:1.5}
+ .itemgrid-fixed .field input,.itemgrid-fixed .field select{height:38px}
+ @media(max-width:1100px){.itemgrid-fixed{grid-template-columns:repeat(3,minmax(0,1fr))}}
+ @media(max-width:650px){.itemgrid-fixed{grid-template-columns:repeat(2,minmax(0,1fr))}}
+ `;
+ document.head.appendChild(st);
+})();
+
+</script>
+
+</body></html>
